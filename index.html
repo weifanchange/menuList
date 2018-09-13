@@ -11,7 +11,7 @@
     </style>
 </head>
 <body>
-    <div>
+    <div id="app">
         <div>
             <p>新增單筆：</p>
             <label for="product">名稱</label> <input type="text" id="product">
@@ -31,20 +31,53 @@
         <br>
         <p>購物清單：</p>
         <table>
-            <tr>
-                <td>名稱</td>
-                <td>單價</td>
-                <td>數量</td>
+            <tr v-for='(list,index) in lists' v-bind:key='list.id'>
+                <td>{{list.title1}}</td>
+                <td>{{list.title2}}</td>
+                <td>{{list.title3}}</td>
                 <td><input type="button" value="刪除"></td>
             </tr>
         </table>
-        <p>總價：</p>
+        <p>總價：{{totalPrice}}</p>
 
     </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>    
     <script>
-        
+        var app = new Vue({
+            el: '#app',
+            data: {
+                product:'0',
+                price:'0',
+                quantity:'0',
+                lists:[
+                    {
+                        id:0,
+                        title1:'皮包',
+                        title2:10,
+                        title3:3
+                    },
+                    {
+                        id:1,
+                        title1:'手機',
+                        title2:20,
+                        title3:2
+                    },
+                    {
+                        id:2,
+                        title1:'課本',
+                        title2:30,
+                        title3:1
+                    },
+                ],
+            },
+            methods:{
+                
+            },
+            computed: {
+                
+            }
+        })
     </script>
 </body>
 </html>
