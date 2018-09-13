@@ -7,7 +7,24 @@
     <title>Menu List</title>
 
     <style>
-        
+        label{
+            padding: 0px 10px;
+        }
+        input{
+            width:80px;
+        }
+        input[type="button"]{
+            background-color: black;
+            color:white;
+            border-radius: 5px;
+            height: 30px;
+        }
+        .box{
+            box-sizing: border-box;
+            width:90px;
+            border:2px solid black;
+            text-align:center;
+        }
     </style>
 </head>
 <body>
@@ -19,27 +36,17 @@
             <label for="quantity">數量</label><input v-model="quantity" id="quantity">
             <input type="button" v-on:click="addNewList" value="新增">
         </div>
-            
-        <!-- <div>
-            <ul>
-                <li>名稱</li>
-                <li>單價</li>
-                <li>數量</li>
-                <input type="button" value="刪除">
-            </ul>
-        </div> -->
         <br>
         <p>購物清單：</p>
         <table>
             <tr v-for='(list,index) in lists' v-bind:key='list.id'>
-                <td>{{list.title1}}</td>
-                <td>{{list.title2}}</td>
-                <td>{{list.title3}}</td>
+                <td class="box">{{list.title1}}</td>
+                <td class="box">{{list.title2}}</td>
+                <td class="box">{{list.title3}}</td>
                 <td><input type="button" value="刪除" v-on:click='lists.splice(index, 1)'></td>
             </tr>
         </table>
         <p>總價：{{totalPrice}}</p>
-
     </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>    
