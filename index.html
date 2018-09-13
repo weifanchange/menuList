@@ -6,15 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Menu List</title>
 
-    <style>
-        
-    </style>
+    <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+    <div id="app">
+        <div>
+            <p>新增單筆：</p>
+            <label for="product">名稱</label> <input v-model="product" id="product">
+            <label for="price">單價</label>   <input v-model="price" id="price">
+            <label for="quantity">數量</label><input v-model="quantity" id="quantity">
+            <input type="button" v-on:click="addNewList" value="新增">
+        </div>
+        <br>
+        <p>購物清單：</p>
+        <table>
+            <tr v-for='(list,index) in lists' v-bind:key='list.id'>
+                <td class="box">{{list.title1}}</td>
+                <td class="box">{{list.title2}}</td>
+                <td class="box">{{list.title3}}</td>
+                <td><input type="button" value="刪除" v-on:click='lists.splice(index, 1)'></td>
+            </tr>
+        </table>
+        <p>總價：{{totalPrice}}</p>
+    </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>    
-    <script>
-        
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
