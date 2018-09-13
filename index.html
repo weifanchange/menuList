@@ -11,6 +11,36 @@
     </style>
 </head>
 <body>
+    <div>
+        <div>
+            <p>新增單筆：</p>
+            <label for="product">名稱</label> <input type="text" id="product">
+            <label for="price">單價</label>   <input type="text" id="price">
+            <label for="quantity">數量</label><input type="text" id="quantity">
+            <input type="button" id="additem" value="新增">
+        </div>
+            
+        <!-- <div>
+            <ul>
+                <li>名稱</li>
+                <li>單價</li>
+                <li>數量</li>
+                <input type="button" value="刪除">
+            </ul>
+        </div> -->
+        <br>
+        <p>購物清單：</p>
+        <table>
+            <tr>
+                <td>名稱</td>
+                <td>單價</td>
+                <td>數量</td>
+                <td><input type="button" value="刪除"></td>
+            </tr>
+        </table>
+        <p>總價：</p>
+
+    </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>    
     <script>
