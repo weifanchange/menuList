@@ -6,29 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Menu List</title>
 
-    <style>
-        label{
-            padding: 0px 10px;
-        }
-        input{
-            display: inline-block;
-            border:2px solid black;
-            width:80px;
-            height:25px;
-        }
-        input[type="button"]{
-            background-color: black;
-            color:white;
-            border-radius: 6px;
-            height: 30px;
-        }
-        .box{
-            box-sizing: border-box;
-            width:90px;
-            border:2px solid black;
-            text-align:center;
-        }
-    </style>
+    <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <div id="app">
@@ -53,59 +31,6 @@
     </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>    
-    <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                product:'0',
-                price:'0',
-                quantity:'0',
-                lists:[
-                    {
-                        id:0,
-                        title1:'皮包',
-                        title2:10,
-                        title3:3
-                    },
-                    {
-                        id:1,
-                        title1:'手機',
-                        title2:20,
-                        title3:2
-                    },
-                    {
-                        id:2,
-                        title1:'課本',
-                        title2:30,
-                        title3:1
-                    },
-                ],
-                nextId:3
-            },
-            methods:{
-                addNewList:function(){
-                    this.lists.push({
-                        id:this.nextId++,
-                        title1:this.product,
-                        title2:this.price,
-                        title3:this.quantity
-                    }),
-                    this.product='0',
-                    this.price='0',
-                    this.quantity='0'
-                }
-            },
-            computed: {
-                totalPrice: function(){
-                    var total = 0;
-                    for(var i=0; i < this.lists.length; i++){
-                        var item = this.lists[i];
-                        total += item.title2 * item.title3;
-                    }
-                    return total.toString();
-                }
-            }
-        })
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
