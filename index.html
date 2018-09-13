@@ -14,10 +14,10 @@
     <div id="app">
         <div>
             <p>新增單筆：</p>
-            <label for="product">名稱</label> <input type="text" id="product">
-            <label for="price">單價</label>   <input type="text" id="price">
-            <label for="quantity">數量</label><input type="text" id="quantity">
-            <input type="button" id="additem" value="新增">
+            <label for="product">名稱</label> <input v-model="product" id="product">
+            <label for="price">單價</label>   <input v-model="price" id="price">
+            <label for="quantity">數量</label><input v-model="quantity" id="quantity">
+            <input type="button" v-on:click="addNewList" value="新增">
         </div>
             
         <!-- <div>
@@ -35,7 +35,7 @@
                 <td>{{list.title1}}</td>
                 <td>{{list.title2}}</td>
                 <td>{{list.title3}}</td>
-                <td><input type="button" value="刪除"></td>
+                <td><input type="button" value="刪除" v-on:click='lists.splice(index, 1)'></td>
             </tr>
         </table>
         <p>總價：{{totalPrice}}</p>
@@ -70,12 +70,30 @@
                         title3:1
                     },
                 ],
+                nextId:3
             },
             methods:{
-                
+                addNewList:function(){
+                    this.lists.push({
+                        id:this.nextId++,
+                        title1:this.product,
+                        title2:this.price,
+                        title3:this.quantity
+                    }),
+                    this.product='0',
+                    this.price='0',
+                    this.quantity='0'
+                }
             },
             computed: {
-                
+                totalPrice: function(){
+                    var total = 0;
+                    for(var i=0; i < this.lists.length; i++){
+                        var item = this.lists[i];
+                        total += item.title2 * item.title3;
+                    }
+                    return total.toString();
+                }
             }
         })
     </script>
